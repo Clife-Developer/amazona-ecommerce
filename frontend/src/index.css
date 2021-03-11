@@ -17,6 +17,8 @@ body{
 #root{
   height:100%;
 }
+
+
 /* Layout */
 .grid-container{
     display:grid;
@@ -56,6 +58,8 @@ h2{
     font-size:1.8rem;
     padding:1rem 0;
 }
+
+
 /* links */
 a{
     text-decoration: none;
@@ -83,6 +87,7 @@ img.medium{
     width:100%
 }
 
+
 /* Card */
 .card{
     border:0.1rem #c0c0c0 solid;
@@ -100,8 +105,12 @@ img.medium{
     font-size:2rem;
 }
 
+
 /* Rating */
 .rating{
     color: #f0c040;;
     margin:0.1rem;
+}
+.rating span:last-child{
+  color: black;
 }
