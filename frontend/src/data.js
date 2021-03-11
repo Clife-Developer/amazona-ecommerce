@@ -19,7 +19,7 @@ const data={
         image:"./images/p2.jpg",
         price:120,
         brand:"Truwoths",
-        rating:4.5,
+        rating:3,
         numReviews:15,
         description:"high quality product"
 
@@ -31,7 +31,7 @@ const data={
         image:"./images/p3.jpg",
         price:140,
         brand:"Adidas",
-        rating:4.5,
+        rating:5,
         numReviews:12,
         description:"high quality product"
 
@@ -43,7 +43,7 @@ const data={
         image:"./images/p4.jpg",
         price:110,
         brand:"Puma",
-        rating:4.5,
+        rating:4,
         numReviews:8,
         description:"high quality product"
 
@@ -55,7 +55,7 @@ const data={
         image:"./images/p5.jpg",
         price:130,
         brand:"Lacoste",
-        rating:4.5,
+        rating:5,
         numReviews:30,
         description:"high quality product"
 
@@ -67,7 +67,7 @@ const data={
         image:"./images/p6.jpg",
         price:140,
         brand:"Nike",
-        rating:4.5,
+        rating:3.5,
         numReviews:11,
         description:"high quality product"
 
