@@ -49,32 +49,15 @@ footer{
     justify-content: space-between;
     align-items: center;
 }
-
-h1{
-    font-size:1.8rem;
-    padding:1rem 0;
+.row.top{
+ align-items:flex-start;
 }
-h2{
-    font-size:1.8rem;
-    padding:1rem 0;
+.col-1{
+  flex:1 1 25rem
 }
 
-
-/* links */
-a{
-    text-decoration: none;
-}
-a:hover{
-    color:red;
-}
-header a{
-    color:white;
-    padding:1rem;
-}
-a.brand{
-  color:white;
-  font-size:3rem;
-  font-weight:bold;
+.col-2{
+  flex:2 1 50rem
 }
 .row.center{
     justify-content: center;
@@ -85,6 +68,65 @@ img{
 img.medium{
     max-width: 29rem;
     width:100%
+}
+img.large{
+  width:100%;
+}
+
+
+h1{
+    font-size:1.8rem;
+    padding:1rem 0;
+}
+h2{
+    font-size:1.8rem;
+    padding:1rem 0;
+}
+ul{
+  padding:0px;
+  margin:0px;
+  list-style-type:none;
+}
+li{
+  margin-top:1rem;
+}
+button{
+  padding:1rem;
+  border-radius:0.5rem;
+  border:0.1rem #a4a4a4 solid;
+  font-size:1.6rem;
+  font-family:Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+button:hover{
+  border: 0.1rem #404040 solid;
+}
+button.primary{
+  background-color: #f0c040;
+}
+button.block{
+  width:100%;
+}
+
+/* links */
+a{
+    text-decoration: none;
+}
+a:hover{
+    color:red;
+}
+
+header a{
+    color:white;
+    padding:1rem;
+}
+a.brand{
+  color:white;
+  font-size:3rem;
+  font-weight:bold;
 }
 
 
@@ -113,4 +155,10 @@ img.medium{
 }
 .rating span:last-child{
   color: black;
+}
+.success{
+  color:rgb(81, 180, 15);
+}
+.error{
+  color:red;
 }
