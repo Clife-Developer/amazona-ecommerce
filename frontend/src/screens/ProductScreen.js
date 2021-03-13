@@ -2,6 +2,7 @@ import React from 'react'
 import Rating from '../components/Rating';
 import data from '../data'
 import {Link} from 'react-router-dom'
+
 function ProductScreen(props) {
     const product=data.products.find(product=>product._id===parseInt(props.match.params.id));
     if(!product){
@@ -65,5 +66,4 @@ function ProductScreen(props) {
         </div>
     )
 }
-
 export default ProductScreen
