@@ -19,7 +19,7 @@ function ProductScreen(props) {
 
     const addToCartHandle=()=>{
         //redirecting user to cart page
-        props.history.push(`/cart/${productId}?qty={qty}`)
+        props.history.push(`/cart/${productId}? qty=${qty}`)
     }
     return (
         <div>

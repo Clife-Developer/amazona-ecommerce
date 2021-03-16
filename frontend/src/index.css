@@ -90,7 +90,8 @@ ul{
 li{
   margin-top:1rem;
 }
-button{
+
+input ,select ,textarea ,button{
   padding:1rem;
   border-radius:0.5rem;
   border:0.1rem #a4a4a4 solid;
@@ -98,10 +99,14 @@ button{
   font-family:Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f8f8f8;
+ 
+}
+
+button{
+   background-color: #f8f8f8;
   cursor: pointer;
 }
-button:hover{
+input:hover ,select:hover ,textarea:hover button:hover{
   border: 0.1rem #404040 solid;
 }
 button.primary{
@@ -119,6 +124,7 @@ a:hover{
     color:red;
 }
 
+/*Header section*/
 header a{
     color:white;
     padding:1rem;
@@ -127,6 +133,15 @@ a.brand{
   color:white;
   font-size:3rem;
   font-weight:bold;
+}
+.badge{
+  color:#ffffff;
+  background-color: #f02020;
+  border-radius:50%;
+  padding:0.2rem 0.7rem;
+  font-size:1.4rem;
+  margin-left:0.2rem;
+
 }
 
 

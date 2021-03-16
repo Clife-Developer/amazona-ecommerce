@@ -17,6 +17,13 @@ app.get('/api/products/:id',(req,res)=>{
 
 })
 
+app.post('/api/products/add',(req,res)=>{
+    const user=req.body;
+    data.products.push(user);
+
+    data.save(user);
+})
+
 app.get('/',(req,res)=>{
     res.send("server is ready")
 })
