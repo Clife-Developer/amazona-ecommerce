@@ -1,4 +1,22 @@
+const bcrytp=require('bcryptjs')
+
 const data={
+
+    users:[
+        {
+            name:"Clife",
+            email:"clife@gmail.com",
+            passowrd:"helloworld",
+            isAdmin:"true"
+        },
+          {
+            name:"Clife",
+            email:"clife1@gmail.com",
+            passowrd:"geeegs",
+            isAdmin:"true"
+        }
+
+    ],
     products:[
         {
         _id:1,
