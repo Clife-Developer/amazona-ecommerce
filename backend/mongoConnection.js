@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
-
-const url=process.env.MONGODB_URL || "mongodb+srv://clife:mhlongo@cluster0.kgvph.mongodb.net/CrudBD";
+const {MongoDBConnection}=require('../utils')
+const url=process.env.MONGODB_URL || MongoDBConnection;
 
 mongoose.connect(url,{
     useCreateIndex:true,

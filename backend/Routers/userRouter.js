@@ -2,7 +2,7 @@ const express=require('express');
 const router=express.Router();
 const User=require("../Models/userModel")
 const bcrypt=require("bcryptjs")
-const generateToken =require("../../utils")
+const { generateToken } =require("../../utils")
 
 router.post('/signin',async(req,res)=>{
     try {
@@ -42,7 +42,7 @@ router.post('/register',async(req,res)=>{
             token:generateToken(user)
         })
     } catch (error) {
-        res.status(404).send(error.message? {error:error.message}:error)
+        res.status(401).send(error.message? {error:error.message}:error)
     }
 
 })

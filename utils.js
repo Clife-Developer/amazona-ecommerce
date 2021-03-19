@@ -9,4 +9,10 @@ const jwt=require('jsonwebtoken')
         },process.env.JWT_SECRETKEY || 'ThisKeySecret',
         {expiresIn:"30d"})
 }
-module.exports=generateToken
+
+const MongoDBConnection="mongodb+srv://clife:mhlongo@cluster0.kgvph.mongodb.net/CrudBD"
+module.exports={
+    generateToken,
+    MongoDBConnection
+
+}

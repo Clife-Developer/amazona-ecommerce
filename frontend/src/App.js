@@ -7,6 +7,7 @@ import CartScreen from './screens/CartScreen';
 import SigninScreen from './screens/SigninScreen';
 import { Signout } from './actions/userAction';
 import RegisterScreen from './screens/RegisterScreen';
+import ShippingAddress from './screens/ShippingAddress';
 function App() {
 
   const cart=useSelector(state =>state.cart);
@@ -35,7 +36,7 @@ function App() {
                 <div className="dropdown">
                   <Link to="#">{userInfo.name}<i className="fa fa-caret-down"></i></Link>
                   <ul className="dropdown-content">
-                    <Link to="/signout" onClick={signoutHandler}>Sign Out</Link>
+                    <Link to="/" onClick={signoutHandler}>Sign Out</Link>
                   </ul>
                 </div>):
                    (<Link to="/signin">Sign In</Link>)}
@@ -47,6 +48,7 @@ function App() {
           <Route path="/product/:id" component={ProductScreen} exact></Route>
           <Route path="/signin" component={SigninScreen} exact></Route>
           <Route path="/register" component={RegisterScreen} exact></Route>
+          <Route path="/shipping" component={ShippingAddress} exact></Route>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         {/* Footer */}

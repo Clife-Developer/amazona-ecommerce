@@ -8,10 +8,11 @@ const initialState={
     cart:{
         // //setting the LocalStorage cart data as initial state, 
         // the first string argument "cartItems", is the same variable passed in the cartActions
-        cartItems:localStorage.getItem('cartItems')? JSON.parse(localStorage.getItem('cartItems')):[]
+        cartItems:localStorage.getItem('cartItems')? JSON.parse(localStorage.getItem('cartItems')):[],
+        shippingAddress:localStorage.getItem('shippingAddress')? JSON.parse(localStorage.getItem("shippingAddress")):{}
     },
     userSignin:{
-        userInfo:localStorage.getItem('userInfo')? JSON.parse(localStorage.getItem('userInfo')):{}
+        userInfo:localStorage.getItem('userInfo')? JSON.parse(localStorage.getItem('userInfo')):null
     }
 };
 
