@@ -182,6 +182,8 @@ a.brand{
 .rating span:last-child{
   color: black;
 }
+
+/* alert */
 .success{
   color:rgb(81, 180, 15);
 }
@@ -200,6 +202,9 @@ a.brand{
 .alert-danger{
   color:#a02020;
   background-color:#ffe0e0e0;
+}
+.loading{
+  display:block !important;
 }
 
 /* Form */

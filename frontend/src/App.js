@@ -6,6 +6,7 @@ import {BrowserRouter, Link, Route} from 'react-router-dom';
 import CartScreen from './screens/CartScreen';
 import SigninScreen from './screens/SigninScreen';
 import { Signout } from './actions/userAction';
+import RegisterScreen from './screens/RegisterScreen';
 function App() {
 
   const cart=useSelector(state =>state.cart);
@@ -13,9 +14,10 @@ function App() {
   const dispatch=useDispatch()
   const {cartItems}=cart;
   const {userInfo}=userSignin;
-
+  
   const signoutHandler=()=>{
     dispatch(Signout())
+    console.log(userInfo)
   }
   return (
     <BrowserRouter>
@@ -44,6 +46,7 @@ function App() {
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path="/product/:id" component={ProductScreen} exact></Route>
           <Route path="/signin" component={SigninScreen} exact></Route>
+          <Route path="/register" component={RegisterScreen} exact></Route>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         {/* Footer */}

@@ -52,7 +52,7 @@ function SigninScreen(props) {
                 <div>
                     <label htmlFor=""></label>
                     <div>
-                        New Customer? <Link to="/register">Create new account</Link>
+                        New Customer? <Link to={`/register?redirect=${redirect}`}>Create new account</Link>
                     </div>
                 </div>
             </form>
