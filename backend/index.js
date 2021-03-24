@@ -2,7 +2,8 @@ const express=require('express');
 const UserRouter=require('./Routers/userRouter')
 const userRoute=require('./Routers/userRouter')
 const productsRoute=require('./Routers/productRoute')
-const dotenv=require('dotenv')
+const dotenv=require('dotenv');
+const orderRouter = require('./Routers/orderRouter');
 require('./mongoConnection');
 
 //making the reading of key in .env file possible
@@ -18,7 +19,7 @@ app.use(express.urlencoded({extended:true}))
 
 app.use('/api/users',userRoute)
 app.use('/api/products',productsRoute)
-
+app.use('/api/orders',orderRouter)
 app.listen(port,()=>{
     console.log(`server is up and running at port ${port}`)
 
