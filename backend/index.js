@@ -20,6 +20,9 @@ app.use(express.urlencoded({extended:true}))
 app.use('/api/users',userRoute)
 app.use('/api/products',productsRoute)
 app.use('/api/orders',orderRouter)
+app.get('/api/config/paypal',(req,res)=>{
+    res.send(process.env.PAYPAL_CLIENT_ID || 'sb')
+})
 app.listen(port,()=>{
     console.log(`server is up and running at port ${port}`)
 
