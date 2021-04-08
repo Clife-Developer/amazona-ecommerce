@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { deliverOrder, detailsOrder, payOrder } from '../actions/orderActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import CheckoutSteps from '../components/CheckOut'
 import {
   ORDER_DELIVER_RESET,
   ORDER_PAY_RESET,
