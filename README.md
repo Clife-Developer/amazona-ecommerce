@@ -15,6 +15,4 @@ BACKEND
 -Node.js, Express, Mongoose, Multer, MongoDB
 
 
-![Screenshot (92)](https://user-images.githubusercontent.com/61283803/121270919-e409f300-c8c2-11eb-948a-788cb5d7ced8.png)
 
-![Screenshot (140)](https://user-images.githubusercontent.com/61283803/121270924-e4a28980-c8c2-11eb-8d10-092640e79423.png)
