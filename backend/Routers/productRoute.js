@@ -19,8 +19,6 @@ const upload=multer({
 //images
 router.post('/',upload.single("image"),async(req,res)=>{
     try {
-         console.log(req.file) 
-         console.log(req.body) 
         const products= new Product({
             name:req.body.name,
             category:req.body.category,

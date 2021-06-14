@@ -3,21 +3,17 @@ const ejs=require('ejs');
 const userRouter=require('./Routers/userRouter')
 const productsRouter=require('./Routers/productRoute')
 const orderRouter = require('./Routers/orderRouter');
-const dotenv=require('dotenv');
-const {
-  PAYPAL_CLIENT_ID
-} =require('../utils');
 
+require('dotenv').config()
 require('./mongoConnection');
 
 // to be able to read variables in .env file
-dotenv.config(); 
+
 
 const app=express();
 const port=process.env.PORT || 5000 ;
 
 //images
-//app.set('view engine', 'ejs');
 app.use('/uploads',express.static('uploads'))
 
 
@@ -32,7 +28,7 @@ app.use('/api/orders',orderRouter)
 
 
 app.get('/api/config/paypal',(req,res)=>{
-    res.send(PAYPAL_CLIENT_ID)
+    res.send(process.env.PAYPAL_CLIENT_ID)
 })
 app.listen(port,()=>{
     console.log(`server is up and running at port ${port}`)

@@ -10,7 +10,7 @@ const jwt=require('jsonwebtoken')
         {expiresIn:"30d"})
 }
 
-const MongoDBConnection="mongodb+srv://clife:mhlongo@cluster0.kgvph.mongodb.net/CrudBD";
+
 
 const isAuth = (req, res, next) => {
   const authorization = req.headers.authorization;
@@ -41,12 +41,10 @@ const isAdmin = (req, res, next) => {
   }
 }
 
-const PAYPAL_CLIENT_ID="AcDHR_lIDL_AfpnbxNtfIcJSNLRei4Ne3ws4X_e8cRQv4AK3ZdGBbRqxxEnWMsJY1qrbTOy5aKo21MID";
+
 
 module.exports={
     generateToken,
-    MongoDBConnection,
-    PAYPAL_CLIENT_ID,
     isAuth
 }
 

@@ -1,8 +1,7 @@
 const sgMail=require('@sendgrid/mail')
 
-const sendgridAPIKey='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';
 //letting sendgrind know we wanna use the sendgridAPIKey above
-sgMail.setApiKey(sendgridAPIKey)
+sgMail.setApiKey(process.env.sendgridAPIKey)
 
 //welcoming Email
 const SendWelcomingEmail=(email, name)=>{
@@ -10,7 +9,7 @@ const SendWelcomingEmail=(email, name)=>{
         sgMail.send(
         {
             to:email,
-            from:"clife.united@gmail.com",
+            from:process.env.AdminEmail,
             subject:"Welcoming Email",
             text:`
             Hello ${name} 
@@ -24,25 +23,13 @@ const SendWelcomingEmail=(email, name)=>{
     )
 }
 
-//Cancellation Email
-// const SendCancellationEmail=(email, name)=>{
-//     sgMail.send(
-//         {
-//             to:email,
-//             from:"clife.united@gmail.com",
-//             subject:"Cancellation Email",
-//             text:`Dear ${name} you have successfully unsubscribed to the app` 
-//         }
-//     )
-// }
-
 const orderEmail=(email)=>{
    
     
         sgMail.send(
         {
             to:email,
-            from:"clife.united@gmail.com",
+            from:process.env.AdminEmail,
             subject:"Order Email",
             text:`
             Hello

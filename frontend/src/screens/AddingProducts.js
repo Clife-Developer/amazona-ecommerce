@@ -10,7 +10,7 @@ function AddingProducts(props) {
 
     const [name,setName]=useState('');
     const [category,setCategory]=useState('');
-    const [image,setImage]=useState('');
+    const [image,setImage]=useState(null);
     const [price,setPrice]=useState(0);
     const [brand,setBrand]=useState('');
     const [rating,setRating]=useState(0);
@@ -18,6 +18,7 @@ function AddingProducts(props) {
     const [description,setDescription]=useState('');
     const [countInStock,setCountInStock]=useState(0);
 
+    console.log(image)
     const SubmitHandler=(e)=>{
         dispatch(addingProductsAction({
             name,category,image,price,
@@ -44,8 +45,8 @@ function AddingProducts(props) {
                 </div>
                 <div>
                     <label htmlFor="image">Image</label>
-                    <input type="file" name="image" id="image" value={image}
-                    placeholder="Enter image link" required onChange={(e)=>setImage(e.target.value)}/>
+                    <input type="file" name="image" id="image"
+                    placeholder="Upload Image" required onChange={(e)=>setImage(e.target.files[0])}/>
                 </div>
                 <div>
                     <label htmlFor="price">Price</label>

@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
-const {MongoDBConnection}=require('../utils')
-const url=process.env.MONGODB_URL || MongoDBConnection;
+// const {MongoDBConnection}=require('../utils')
+const url=process.env.MONGODB_URL;
 
 mongoose.connect(url,{
     useCreateIndex:true,

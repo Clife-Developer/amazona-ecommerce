@@ -51,10 +51,22 @@ export const detailsProduct=(productId)=>async(dispatch)=>{
 }
 
 //ProductDetails Action
+
 export const addingProductsAction=(products)=>async(dispatch,getState)=>{
     dispatch({type:PRODUCT_ADDED_REQUEST})
     try {
-        const {data}=await axios.post(`/api/products/`,products);
+        const fd= new FormData()
+        fd.append("image",products.image)
+        fd.append('name',products.name);
+        fd.append('category',products.category);
+        fd.append('price',products.price);
+        fd.append('brand',products.brand);
+        fd.append('rating',products.rating);
+        fd.append('numReviews',products.numReviews);
+        fd.append('description',products.description);
+        fd.append('countInStock',products.countInStock);
+
+        const {data}=await axios.post("/api/products/",fd);
         dispatch({
             type:PRODUCT_ADDED_SUCCESS, payload:data
         })
