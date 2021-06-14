@@ -1,4 +1,4 @@
-ECOMMERCE WEB APPLICATION
+##ECOMMERCE WEB APPLICATION
 
 -This a Javascript full stack application, that allows users to view and purchase products online using the PayPal payment gateaway. It's divided into two main components, the Admin and customer sides.
 
@@ -6,7 +6,7 @@ ECOMMERCE WEB APPLICATION
 
 -Use should sign in or sign up to be able to purchase any products.
 
-TECHNOLOGIES USED
+##TECHNOLOGIES USED
 
 FRONTEND
 -React.js, Redux, CSS, PAYPAL
