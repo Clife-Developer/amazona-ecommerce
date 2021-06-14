@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, {useEffect } from 'react'
 import Product from '../components/Product'
 import LoadingBox from '../components/LoadingBox'
 import MessageBox from '../components/MessageBox'
@@ -16,6 +16,10 @@ function HomeScreen() {
     return (
      // HomeScreen Component
           <div>
+               <div className="row center">
+                   <input className="searchBar" type="text" name="search" placeholder="Search here.."></input>
+                   <button className="searchButton" type="submit">Search</button>
+               </div>
                {loading? (<LoadingBox></LoadingBox>) : error? (<MessageBox variant="danger">{error}</MessageBox>):(
                    <div className="row center">
                         {products.map(product=>{

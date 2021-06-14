@@ -1,33 +1,32 @@
 const express=require('express');
 const expressAsyncHandler=require('express-async-handler');
-const Order=require('../Models/orderModel.js');
+const Order=require('../Models/orderModel');
 const {
   isAuth
 } =require('../../utils.js');
-
+const {orderEmail}=require("../SendEmail")
 const orderRouter = express.Router();
-// orderRouter.get(
-//   '/',
-//   isAuth,
-//   isSellerOrAdmin,
-//   expressAsyncHandler(async (req, res) => {
-//     const seller = req.query.seller || '';
-//     const sellerFilter = seller ? { seller } : {};
 
-//     const orders = await Order.find({ ...sellerFilter }).populate(
-//       'user',
-//       'name'
-//     );
-//     res.send(orders);
-//   })
-// );
+orderRouter.get(
+  '/',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const orders= await Order.find();
+    if(orders){
+      res.status(200).send(orders)
+    }
+    else{
+      {message:"order not found"}
+    }
+  })
+);
 
 
 orderRouter.get(
   '/mine',
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    const orders = await Order.find({ user: req.user._id });
+    const orders = await Order.find({ owner: req.user._id });
     res.send(orders);
   })
 );
@@ -39,62 +38,38 @@ orderRouter.post(
     if (req.body.orderItems.length === 0) {
       res.status(400).send({ message: 'Cart is empty' });
     } else {
-      const order = new Order({
-        seller: req.body.orderItems[0].seller,
-        orderItems: req.body.orderItems,
-        shippingAddress: req.body.shippingAddress,
-        paymentMethod: req.body.paymentMethod,
-        itemsPrice: req.body.itemsPrice,
-        shippingPrice: req.body.shippingPrice,
-        taxPrice: req.body.taxPrice,
-        totalPrice: req.body.totalPrice,
-        user: req.user._id,
-      });
-      const createdOrder = await order.save();
-      res
-        .status(201)
-        .send({ message: 'New Order Created', order: createdOrder });
+    const order = new Order({
+      ...req.body, owner:req.user._id
+    });
+    orderEmail(req.user.email)
+      await order.save();
+      res.status(201).send({ message: 'New Order Created', order: order });
     }
+
   })
 );
 
 
 orderRouter.put(
-  '/:id/pay',
+  '/pay/:id',
+  isAuth,async (req, res) => {
+    try {
+      const PaidOrder=await Order.findByIdAndUpdate(req.params.id,{isPaid:req.body.isPaid});
+      await PaidOrder.save();
+      res.status(200).send({_id:PaidOrder._id}); 
+    } catch (error) {
+      res.status(404).send({message:"order not found"}); 
+    }
+  }
+);
+
+orderRouter.get(
+  '/:id',
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    const order = await Order.findById(req.params.id).populate(
-      'user',
-      'email name'
-    );
+    const order = await Order.findById(req.params.id);
     if (order) {
-      order.isPaid = true;
-      order.paidAt = Date.now();
-      order.paymentResult = {
-        id: req.body.id,
-        status: req.body.status,
-        update_time: req.body.update_time,
-        email_address: req.body.email_address,
-      };
-      const updatedOrder = await order.save();
-      mailgun()
-        .messages()
-        .send(
-          {
-            from: 'Amazona <amazona@mg.yourdomain.com>',
-            to: `${order.user.name} <${order.user.email}>`,
-            subject: `New order ${order._id}`,
-            html: payOrderEmailTemplate(order),
-          },
-          (error, body) => {
-            if (error) {
-              console.log(error);
-            } else {
-              console.log(body);
-            }
-          }
-        );
-      res.send({ message: 'Order Paid', order: updatedOrder });
+      res.send({_id:order._id,isPaid:order.isPaid});
     } else {
       res.status(404).send({ message: 'Order Not Found' });
     }

@@ -22,11 +22,10 @@ export default function OrderHistoryScreen(props) {
         <table className="table">
           <thead>
             <tr>
-              <th>ID</th>
+              <th>ORDER ID</th>
               <th>DATE</th>
               <th>TOTAL</th>
               <th>PAID</th>
-              <th>DELIVERED</th>
               <th>ACTIONS</th>
             </tr>
           </thead>
@@ -34,14 +33,9 @@ export default function OrderHistoryScreen(props) {
             {orders.map((order) => (
               <tr key={order._id}>
                 <td>{order._id}</td>
-                <td>{order.createdAt.substring(0, 10)}</td>
-                <td>{order.totalPrice.toFixed(2)}</td>
-                <td>{order.isPaid ? order.paidAt.substring(0, 10) : 'No'}</td>
-                <td>
-                  {order.isDelivered
-                    ? order.deliveredAt.substring(0, 10)
-                    : 'No'}
-                </td>
+                <td>{order.createdAt}</td>
+                <td>{order.totalPrice}</td>
+                <td>{order.isPaid ? ("order Paid"):("Order not paid")}</td>
                 <td>
                   <button
                     type="button"

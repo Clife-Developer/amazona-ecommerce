@@ -32,7 +32,7 @@ body{
 }
 header{
     grid-area: header;
-    background-color: #203040;
+    background-color: gold;
 }
 main{
     grid-area:main;
@@ -40,7 +40,7 @@ main{
 }
 footer{
     grid-area:footer;
-    background-color: #203040;
+    background-color: gold;
     color:#ffffff
 }
 .row{
@@ -117,10 +117,13 @@ input:hover ,select:hover ,textarea:hover button:hover{
   border: 0.1rem #404040 solid;
 }
 button.primary{
-  background-color: #f0c040;
+  background-color: gold;
 }
 button.block{
   width:100%;
+}
+button.small{
+  font-size:1.2rem;
 }
 
 button.cart:hover{
@@ -176,7 +179,7 @@ a.brand{
 
 /* Rating */
 .rating{
-    color: #f0c040;;
+    color: gold;
     margin:0.1rem;
 }
 .rating span:last-child{
@@ -201,7 +204,11 @@ a.brand{
 }
 .alert-danger{
   color:#a02020;
-  background-color:#ffe0e0e0;
+  background-color:#ffe0e0;
+}
+.alert-success{
+  color:#20a020;
+  background-color: #eeffe0;
 }
 .loading{
   display:block !important;
@@ -235,7 +242,7 @@ a.brand{
   min-width:12rem;
   padding:1rem;
   z-index:1;
-  background-color:#203040;
+  background-color:gold;
   margin: 0;
   margin-top:0.4rem;
   border-radius:0.5rem;
@@ -255,4 +262,51 @@ a.brand{
 .checkout-steps > div.active{
   border-top-color:#f08000;
   color:#f08000;
+}
+
+/* Table */
+.table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.table tbody tr:nth-of-type(odd){
+  background-color: grey;
+}
+.table td,
+.table th{
+  text-align:left;
+  border:0.1rem solid grey;
+  padding:0.5rem;
+}
+.table button{
+  margin: 0 0.2rem;
+}
+
+.searchBar{
+  width: 25rem;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+.searchBar:focus{
+  width: 70%;
+}
+.searchButton{
+  margin-left:3px;
+  background-color: gold;
+}
+
+.headings{
+  font-size:35px;
+  color: gold;
+  padding:5px;
+}
+
+.paid{
+  color:green;
+}
+.notpaid{
+  color:red
 }

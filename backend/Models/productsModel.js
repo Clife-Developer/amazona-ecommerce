@@ -1,6 +1,7 @@
 const mongoose =require("mongoose");
 
-const useSchema=new mongoose.Schema({
+const useSchema=new mongoose.Schema(
+    {
         name:{
             type:String,
             required:true
@@ -23,22 +24,18 @@ const useSchema=new mongoose.Schema({
         },
         rating:{
             type:Number,
-            required:true
-        },
+            required:true},
         numReviews:{
-            type:Number,
-            required:true
+            type:Number,required:true
         },
         description:{
             type:String,
-            required:true
-        },
+            required:true},
         countInStock:{
             type:Number,
-            required:true
-        },
-
-},{
+            required:true},
+},
+{
     timestamps:true
 })
 

@@ -9,7 +9,7 @@ function PaymentMethod(props) {
     if(!shippingAddress.address){
         props.history.push('/shipping')
     }
-    const [paymentMethod,setPaymentMethod]=useState('PayPal');
+    const [paymentMethod,setPaymentMethod]=useState('payPal');
     const dispatch=useDispatch();
     const submitHandler=(e)=>{
          e.preventDefault();

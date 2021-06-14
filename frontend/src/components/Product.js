@@ -6,7 +6,7 @@ function Product({product}) {
         // Product Component for displaying Products
               <div className="card" key={product._id}>
                     <Link to={`/product/${product._id}`}>
-                        <img className="medium" src={product.image} alt={product.name}/>
+                        <img style={{height:25+"rem"}} className="medium" src={product.image} alt={product.name}/>
                     </Link>
                     <div className="card-body">
                         <Link to={`/product/${product._id}`}>

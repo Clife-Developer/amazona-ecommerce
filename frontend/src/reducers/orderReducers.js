@@ -41,12 +41,12 @@ export const orderCreateReducer = (state = {}, action) => {
   }
 };
 
-export const orderDetailsReducer = (state = { loading: true }, action) => {
+export const orderDetailsReducer = (state={loading:true}, action) => {
   switch (action.type) {
     case ORDER_DETAILS_REQUEST:
       return { loading: true };
     case ORDER_DETAILS_SUCCESS:
-      return { loading: false, order: action.payload };
+      return { loading: false, orderInfo: action.payload };
     case ORDER_DETAILS_FAIL:
       return { loading: false, error: action.payload };
     default:
@@ -54,20 +54,20 @@ export const orderDetailsReducer = (state = { loading: true }, action) => {
   }
 };
 
-export const orderPayReducer = (state = {}, action) => {
+export const isPaidReducer = (state = {loading:true}, action) => {
   switch (action.type) {
     case ORDER_PAY_REQUEST:
       return { loading: true };
     case ORDER_PAY_SUCCESS:
-      return { loading: false, success: true };
+      return { loading: false, isPaidInfo:action.payload};
     case ORDER_PAY_FAIL:
       return { loading: false, error: action.payload };
-    case ORDER_PAY_RESET:
-      return {};
     default:
       return state;
   }
 };
+
+
 export const orderMineListReducer = (state = { orders: [] }, action) => {
   switch (action.type) {
     case ORDER_MINE_LIST_REQUEST:

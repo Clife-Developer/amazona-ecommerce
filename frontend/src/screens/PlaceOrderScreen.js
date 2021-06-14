@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { createOrder } from '../actions/orderActions';
-import CheckOut from '../components/CheckOut';
+import CheckoutSteps from '../components/CheckOut';
 import { ORDER_CREATE_RESET } from '../constants/orderConstants';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -24,10 +24,10 @@ export default function PlaceOrderScreen(props) {
   const dispatch = useDispatch();
   const placeOrderHandler = () => {
     dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
-  };
+  }; 
   useEffect(() => {
     if (success) {
-      props.history.push(`/order/${order._id}`);
+      props.history.push(`/order/${order._id}?amount=${cart.totalPrice.toFixed(2)}`);
       dispatch({ type: ORDER_CREATE_RESET });
     }
   }, [dispatch, order, props.history, success]);

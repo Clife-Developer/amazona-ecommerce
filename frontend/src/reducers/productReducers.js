@@ -3,7 +3,10 @@ import {PRODUCT_DETAILS_FAIL,
      PRODUCT_DETAILS_SUCCESS, 
      PRODUCT_LIST_FAIL,
      PRODUCT_LIST_REQUEST,
-     PRODUCT_LIST_SUCCESS} from '../constants/productConstants'
+     PRODUCT_LIST_SUCCESS,
+    PRODUCT_ADDED_FAIL,
+PRODUCT_ADDED_REQUEST,
+PRODUCT_ADDED_SUCCESS} from '../constants/productConstants'
 
     //HomeScreen Reducer
 export const productListReducer=(state={products:[]},action)=>{
@@ -32,3 +35,18 @@ export const productDetailsReducer=(state={product:{}},action)=>{
             return state;
     }
 }
+
+//adding products
+export const AddingProductReducer=(state={addedProducts:[]},action)=>{
+    switch(action.type){
+        case PRODUCT_ADDED_REQUEST:
+            return{loading:true}
+        case PRODUCT_ADDED_SUCCESS:
+            return{loading:false,addedProducts:action.payload}
+        case PRODUCT_ADDED_FAIL:
+            return{loading:false,error:action.payload}
+        default:
+            return state;
+    }
+}
+

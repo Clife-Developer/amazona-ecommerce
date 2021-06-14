@@ -11,8 +11,11 @@ function ProductScreen(props) {
     const [qty,setQty]=useState(1)
     const productDetails = useSelector(state => state.productDetails)
     const {loading,error,product}=productDetails;
+    // const productList=useSelector(state=>state.productList)
+    // const {loading,error,products}=productList;
     const productId=props.match.params.id;
      
+    // const product=products.find(prod=>prod._id===productId)
     useEffect(()=>{
         dispatch(detailsProduct(productId))
     },[productId,dispatch])
@@ -28,7 +31,7 @@ function ProductScreen(props) {
         
          //Product component, displaying one specific product
         (<div>
-            <Link to="">Back to results</Link>
+            <Link to="">Back to products</Link>
             <div className="row top">
                 <div className="col-2">
                     <img className="large" src={product.image} alt={product.name}/>

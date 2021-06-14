@@ -1,12 +1,15 @@
 const express=require('express');
-const UserRouter=require('./Routers/userRouter')
-const userRoute=require('./Routers/userRouter')
-const productsRoute=require('./Routers/productRoute')
-const dotenv=require('dotenv');
+const userRouter=require('./Routers/userRouter')
+const productsRouter=require('./Routers/productRoute')
 const orderRouter = require('./Routers/orderRouter');
+const dotenv=require('dotenv');
+const {
+  PAYPAL_CLIENT_ID
+} =require('../utils');
+
 require('./mongoConnection');
 
-//making the reading of key in .env file possible
+// to be able to read variables in .env file
 dotenv.config(); 
 
 const app=express();
@@ -17,13 +20,17 @@ app.use(express.json())
 //directing all requests from front end to req in express
 app.use(express.urlencoded({extended:true}))
 
-app.use('/api/users',userRoute)
-app.use('/api/products',productsRoute)
+app.use('/api/users',userRouter)
+app.use('/api/products',productsRouter)
 app.use('/api/orders',orderRouter)
+
+
 app.get('/api/config/paypal',(req,res)=>{
-    res.send(process.env.PAYPAL_CLIENT_ID || 'sb')
+    res.send(PAYPAL_CLIENT_ID)
 })
 app.listen(port,()=>{
     console.log(`server is up and running at port ${port}`)
 
 })
+
+
