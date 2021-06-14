@@ -1,4 +1,5 @@
 const express=require('express');
+const ejs=require('ejs');
 const userRouter=require('./Routers/userRouter')
 const productsRouter=require('./Routers/productRoute')
 const orderRouter = require('./Routers/orderRouter');
@@ -14,6 +15,11 @@ dotenv.config();
 
 const app=express();
 const port=process.env.PORT || 5000 ;
+
+//images
+//app.set('view engine', 'ejs');
+app.use('/uploads',express.static('uploads'))
+
 
 //directing all json data from request to request body in express
 app.use(express.json())

@@ -14,12 +14,14 @@ import OrderScreen from './screens/OrderScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import PrivateRoute from './components/PrivateRoute';
+import AdminRoute from './components/AdminRoute';
 import ProductsList from './screens/ProductList';
 import UserList from './screens/userList'
 import AddingProducts from './screens/AddingProducts';
 import Paid from './screens/Paid';
 import OrderList from './screens/OrderList';
 import UpdateProduct from './screens/UpdateProduct';
+import Page404 from './screens/Page404';
 function App() {
 
   const cart=useSelector(state =>state.cart);
@@ -80,27 +82,31 @@ function App() {
             </div>
         </header>
         <main>
-          {/* application routes */}
+          {/* Pubblic rooutes */}
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path="/product/:id" component={ProductScreen} exact></Route>
           <Route path="/signin" component={SigninScreen} exact></Route>
           <Route path="/register" component={RegisterScreen} exact></Route>
-          <Route path="/shipping" component={ShippingAddress} exact></Route>
-          <Route path="/payment" component={PaymentMethod} exact></Route>
           <Route path="/placeorder" component={PlaceOrderScreen} exact></Route>
-          {/* <Route path="/" component={OrderScreen} exact></Route> */}
-          <Route path="/orderHistory" component={OrderHistoryScreen} exact></Route>
-          <PrivateRoute path="/profile" component={ProfileScreen} exact></PrivateRoute>
-          <Route path="/productslist" component={ProductsList} exact></Route>
-          <Route path="/userList" component={UserList} exact></Route>
-          <Route path="/order/:id" component={OrderScreen} exact></Route>
-          <Route path="/orders/orderslist" component={OrderList} exact></Route>
-          <Route path="/pay/:id" component={Paid} exact></Route>
-          <Route path="/addproducts" component={AddingProducts} exact></Route>
-          <Route path="/updateProduct/:id" component={UpdateProduct} exact></Route>
-          <Route path="/" component={HomeScreen} exact></Route>
-          
 
+          {/* Private rooutes */}
+          <PrivateRoute path="/shipping" component={ShippingAddress} exact></PrivateRoute>
+          <PrivateRoute path="/payment" component={PaymentMethod} exact></PrivateRoute>
+          {/* <Route path="/" component={OrderScreen} exact></Route> */}
+          <PrivateRoute path="/orderHistory" component={OrderHistoryScreen} exact></PrivateRoute>
+          <PrivateRoute path="/profile" component={ProfileScreen} exact></PrivateRoute>
+          <PrivateRoute path="/order/:id" component={OrderScreen} exact></PrivateRoute>
+          <PrivateRoute path="/pay/:id" component={Paid} exact></PrivateRoute>
+
+          {/* Admin rooutes */}
+          <AdminRoute path="/productslist" component={ProductsList} exact></AdminRoute>
+          <AdminRoute path="/userList" component={UserList} exact></AdminRoute>
+          <AdminRoute path="/orders/orderslist" component={OrderList} exact></AdminRoute>
+          <AdminRoute path="/addproducts" component={AddingProducts} exact></AdminRoute>
+          <AdminRoute path="/updateProduct/:id" component={UpdateProduct} exact></AdminRoute>
+        
+          {/*Home page route*/}
+           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         {/* Footer */}
         <footer className="row center">All rights reserved</footer>

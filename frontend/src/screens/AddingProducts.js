@@ -43,8 +43,8 @@ function AddingProducts(props) {
                     placeholder="Enter Category" required onChange={(e)=>setCategory(e.target.value)}/>
                 </div>
                 <div>
-                    <label htmlFor="image">Image Link</label>
-                    <input type="text" name="image" id="image" value={image}
+                    <label htmlFor="image">Image</label>
+                    <input type="file" name="image" id="image" value={image}
                     placeholder="Enter image link" required onChange={(e)=>setImage(e.target.value)}/>
                 </div>
                 <div>
