@@ -6,11 +6,9 @@ const jwt=require('jsonwebtoken')
             name:user.name, 
             email:user.email,
             isAdmin:user.isAdmin
-        },process.env.JWT_SECRETKEY || 'ThisKeySecret',
+        },process.env.JWT_SECRETKEY,
         {expiresIn:"30d"})
 }
-
-
 
 const isAuth = (req, res, next) => {
   const authorization = req.headers.authorization;
@@ -18,7 +16,7 @@ const isAuth = (req, res, next) => {
     const token = authorization.slice(7, authorization.length); // Bearer XXXXXX
     jwt.verify(
       token,
-      process.env.JWT_SECRET || 'ThisKeySecret',
+      process.env.JWT_SECRETKEY || 'somethingsecret',
       (err, decode) => {
         if (err) {
           res.status(401).send({ message: 'Invalid Token' });
@@ -32,7 +30,7 @@ const isAuth = (req, res, next) => {
     res.status(401).send({ message: 'No Token' });
   }
 };
-  
+
 const isAdmin = (req, res, next) => {
   if(req.user && req.user.isAdmin){
     next();
@@ -41,11 +39,10 @@ const isAdmin = (req, res, next) => {
   }
 }
 
-
-
 module.exports={
     generateToken,
-    isAuth
+    isAuth,
+    isAdmin
 }
 
 
