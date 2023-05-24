@@ -17,11 +17,17 @@ BACKEND
 
 ![signUp](https://github.com/Clife-Developer/amazona-ecommerce/assets/61283803/ce08ed13-2e51-4a94-b6db-cc7481ed8c74)
 
+
 ![Screenshot (92)](https://user-images.githubusercontent.com/61283803/121271102-3e0ab880-c8c3-11eb-9c46-f1426060fa9c.png)
+
 
 ![Screenshot (140)](https://user-images.githubusercontent.com/61283803/121271105-3ea34f00-c8c3-11eb-9ca3-1a96366e94a4.png)
 
 
 ![Snip1](https://github.com/Clife-Developer/amazona-ecommerce/assets/61283803/af170980-8e5c-48ef-ac13-4008fea2d74c)
+
+
 ![paypal](https://github.com/Clife-Developer/amazona-ecommerce/assets/61283803/00daa5b6-6086-420d-af25-6b9be3c4cb27)
+
+
 ![details](https://github.com/Clife-Developer/amazona-ecommerce/assets/61283803/4681daa2-b447-44d9-aac4-70cf5ab43752)
